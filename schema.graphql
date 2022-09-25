@@ -1,0 +1,6 @@
+type CampaignCreated @entity {
+  id: ID!
+  c: Bytes! # address
+  whiteList: [Bytes]! # address[]
+  targetAmount: BigInt! # uint256
+}
