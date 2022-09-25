@@ -1,0 +1,24 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: VerifundFactory
+    network: goerli
+    source:
+      address: "0xf5f134A08fba73F60530F6C5668A1d0DeC407bFF"
+      abi: VerifundFactory
+      startBlock: 7656881
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - CampaignCreated
+      abis:
+        - name: VerifundFactory
+          file: VerifundFactory\abis\VerifundFactory.json
+      eventHandlers:
+        - event: CampaignCreated(indexed address,address[],indexed uint256)
+          handler: handleCampaignCreated
+      file: VerifundFactory\VerifundFactory.wasm
